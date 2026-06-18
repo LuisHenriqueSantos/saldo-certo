@@ -1,20 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import {
   BarChart3,
   CircleDollarSign,
   CreditCard,
   LayoutDashboard,
+  LogOut,
   Tags,
   TrendingUp,
   Wallet
 } from "lucide-react";
+import { clearSession } from "@/lib/api";
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/salaries", label: "Salario", icon: CircleDollarSign },
   { href: "/incomes", label: "Receitas", icon: Wallet },
   { href: "/expenses", label: "Despesas", icon: CreditCard },
@@ -24,6 +26,12 @@ const navItems = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  function logout() {
+    clearSession();
+    router.push("/");
+  }
 
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-80 border-r border-zinc-800 bg-[#0b0b0b] lg:block">
@@ -34,7 +42,7 @@ export function Sidebar() {
               <TrendingUp className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-base font-black text-zinc-50">Saldo Certo</p>
+              <p className="text-base font-black text-zinc-50">Meu Saldo Mensal</p>
               <p className="text-xs font-medium text-zinc-500">Controle financeiro pessoal</p>
             </div>
           </div>
@@ -72,6 +80,14 @@ export function Sidebar() {
         <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-4">
           <p className="text-sm font-bold text-zinc-100">Controle do mes</p>
           <p className="mt-1 text-xs leading-5 text-zinc-500">Receitas, despesas e saldo final em um painel direto.</p>
+          <button
+            type="button"
+            onClick={logout}
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm font-bold text-zinc-100 transition hover:border-orange-500/70 hover:bg-zinc-800"
+          >
+            <LogOut className="h-4 w-4" />
+            Sair
+          </button>
         </div>
       </div>
     </aside>
@@ -80,6 +96,12 @@ export function Sidebar() {
 
 export function MobileNav() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  function logout() {
+    clearSession();
+    router.push("/");
+  }
 
   return (
     <header className="sticky top-0 z-20 border-b border-zinc-800 bg-[#0b0b0b]/95 px-4 py-4 backdrop-blur lg:hidden">
@@ -89,10 +111,18 @@ export function MobileNav() {
             <TrendingUp className="h-5 w-5" />
           </div>
           <div>
-            <p className="font-black text-zinc-50">Saldo Certo</p>
+            <p className="font-black text-zinc-50">Meu Saldo Mensal</p>
             <p className="text-xs text-zinc-500">Controle financeiro pessoal</p>
           </div>
         </div>
+        <button
+          type="button"
+          onClick={logout}
+          aria-label="Sair"
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-300"
+        >
+          <LogOut className="h-4 w-4" />
+        </button>
       </div>
       <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
         {navItems.map((item) => {

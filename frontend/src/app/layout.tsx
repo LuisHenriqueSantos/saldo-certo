@@ -3,7 +3,7 @@ import "./globals.css";
 import { AppLayout } from "@/components/layout/AppLayout";
 
 export const metadata: Metadata = {
-  title: "Saldo Certo",
+  title: "Meu Saldo Mensal",
   description: "Controle financeiro pessoal mensal"
 };
 

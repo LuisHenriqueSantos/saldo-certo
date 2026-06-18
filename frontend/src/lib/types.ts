@@ -112,3 +112,27 @@ export type ApiError = {
   message?: string;
   details?: string[];
 };
+
+export type AuthUser = {
+  id: string;
+  name: string;
+  email: string;
+};
+
+export type AuthTenant = {
+  id: string;
+  accountName: string;
+};
+
+export type LoginResponse = {
+  accessToken: string;
+  tokenType: "Bearer";
+  user: AuthUser;
+  tenant: AuthTenant;
+};
+
+export type RegisterResponse = {
+  message: string;
+  userId: string;
+  tenantId: string;
+};

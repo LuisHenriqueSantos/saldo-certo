@@ -1,0 +1,16 @@
+INSERT INTO categorias (id, name, type, color, icon, created_at, updated_at) VALUES
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0001', 'Salario', 'INCOME', '#f97316', 'CircleDollarSign', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0002', 'Freelance', 'INCOME', '#22c55e', 'BriefcaseBusiness', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0003', 'Aluguel', 'EXPENSE', '#16a34a', 'Home', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0004', 'Mercado', 'EXPENSE', '#22c55e', 'ShoppingCart', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0005', 'Energia', 'EXPENSE', '#eab308', 'Zap', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0006', 'Agua', 'EXPENSE', '#38bdf8', 'Droplets', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0007', 'Internet', 'EXPENSE', '#0ea5e9', 'Wifi', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0008', 'Cartao de credito', 'EXPENSE', '#f97316', 'CreditCard', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0009', 'Transporte', 'EXPENSE', '#6366f1', 'Car', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0010', 'Lazer', 'EXPENSE', '#ec4899', 'Gamepad2', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0011', 'Saude', 'EXPENSE', '#ef4444', 'HeartPulse', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0012', 'Educacao', 'EXPENSE', '#8b5cf6', 'GraduationCap', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0013', 'Assinaturas', 'EXPENSE', '#14b8a6', 'Repeat', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0014', 'Investimentos', 'EXPENSE', '#15803d', 'TrendingUp', NOW(), NOW()),
+('2e818f0d-7d8b-4d49-9f53-71f63a3d0015', 'Outros', 'EXPENSE', '#64748b', 'CircleEllipsis', NOW(), NOW());
