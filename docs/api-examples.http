@@ -1,0 +1,98 @@
+@baseUrl = http://localhost:8080/api/v1
+@month = 6
+@year = 2026
+
+### Listar categorias iniciais
+GET {{baseUrl}}/categories
+
+### Criar categoria de despesa
+POST {{baseUrl}}/categories
+Content-Type: application/json
+
+{
+  "name": "Academia",
+  "type": "EXPENSE",
+  "color": "#16a34a",
+  "icon": "Dumbbell"
+}
+
+### Criar salario
+POST {{baseUrl}}/salaries
+Content-Type: application/json
+
+{
+  "description": "Salario principal",
+  "amount": 6500.00,
+  "receivedDate": "2026-06-05",
+  "month": 6,
+  "year": 2026
+}
+
+### Listar salarios do mes
+GET {{baseUrl}}/salaries?month={{month}}&year={{year}}
+
+### Criar receita extra
+POST {{baseUrl}}/incomes
+Content-Type: application/json
+
+{
+  "description": "Freelance landing page",
+  "amount": 1200.00,
+  "incomeDate": "2026-06-10",
+  "type": "FREELANCE",
+  "month": 6,
+  "year": 2026
+}
+
+### Listar receitas do mes
+GET {{baseUrl}}/incomes?month={{month}}&year={{year}}
+
+### Criar despesa
+# Troque categoryId por um id retornado em GET /categories.
+POST {{baseUrl}}/expenses
+Content-Type: application/json
+
+{
+  "categoryId": "2e818f0d-7d8b-4d49-9f53-71f63a3d0002",
+  "description": "Compra do mes",
+  "amount": 850.00,
+  "dueDate": "2026-06-12",
+  "paymentDate": null,
+  "status": "PENDING",
+  "type": "VARIABLE",
+  "installmentNumber": null,
+  "totalInstallments": null,
+  "month": 6,
+  "year": 2026,
+  "notes": "Mercado semanal e reposicao"
+}
+
+### Listar despesas do mes
+GET {{baseUrl}}/expenses?month={{month}}&year={{year}}
+
+### Marcar despesa como paga
+# Troque o id pelo id retornado na criacao/listagem.
+PATCH {{baseUrl}}/expenses/00000000-0000-0000-0000-000000000000/pay
+Content-Type: application/json
+
+{
+  "paymentDate": "2026-06-12"
+}
+
+### Voltar despesa para pendente
+PATCH {{baseUrl}}/expenses/00000000-0000-0000-0000-000000000000/pending
+
+### Dashboard mensal
+GET {{baseUrl}}/dashboard?month={{month}}&year={{year}}
+
+### Fechar mes
+POST {{baseUrl}}/monthly-summaries/close
+Content-Type: application/json
+
+{
+  "month": 6,
+  "year": 2026
+}
+
+### Listar resumos por ano
+GET {{baseUrl}}/monthly-summaries?year={{year}}
