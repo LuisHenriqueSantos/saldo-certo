@@ -30,6 +30,7 @@ Banco local:
 Suba o backend pela IDE usando:
 
 ```text
+Main class: br.com.meusaldomensal.MeuSaldoMensalApplication
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5433/saldo_certo
 SPRING_DATASOURCE_USERNAME=saldo
 SPRING_DATASOURCE_PASSWORD=saldo
